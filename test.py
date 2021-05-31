@@ -6,18 +6,11 @@ for i in [3, 5, 9]:
 
 # Є словник | ключ- без різниці | value - 20 елементів інтові
 # | вивести ключі трьох найбільший значень в порядку зростання значень
-my_dict = {}
-
-for i in range(20):
-    my_dict[i] = random.randint(0, 100)
-
+my_dict = dict((key, random.randint(0, 100)) for key in range(20))
 print(my_dict)
 
-for i in range(17):
-    my_dict.pop(min(my_dict, key=my_dict.get))
-
-for i in range(3):
-    max_val = max(my_dict, key=my_dict.get)
-    print(max_val)
-    my_dict.pop(max_val)
+res = sorted(my_dict.items(),
+             key=lambda item: item[1])[len(my_dict) - 3:len(my_dict):]
+for k, _ in res:
+    print(k)
 
