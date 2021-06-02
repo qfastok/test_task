@@ -13,7 +13,7 @@ my_dict = dict((key, random.randint(0, 100)) for key in range(20))
 print(my_dict)
 
 res = sorted(my_dict.items(),
-             key=lambda item: item[1])[len(my_dict) - 3:len(my_dict):]
+             key=lambda item: item[1], reverse=True)[:3:]
 for k, _ in res:
     print(k)
 
